@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+
+  <ul id="ulcss">
+
+<h2>Actualmente hay {{ centros|length }} centros en nuestro directorio</h2>
+
+  {% for data in centros %}
+
+  <li><a href="{{ data.id_centro }}">{{ data.centro }}</a>
+          <ul>
+            {% for data2 in cursos %}
+              {% if data2.id_centro == data.id_centro %}
+                <li><a href="{{ data2.id_centro }}/{{ data2.id_curso }}">{{ data2.curso }}</a>
+
+                <ul>
+                  {% for data3 in asig %}
+                    {% if data3.id_curso == data2.id_curso %}
+                      <li><a href="{{ data.id_centro }}/{{ data2.id_curso }}/{{ data3.id_asignatura }}">{{ data3.asignatura }}</a></li>
+                    {% endif %}
+                  {% else %}
+                    <li><em>Sin asignaturas</em></li>
+                  {% endfor %}
+                </ul>
+
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+  </li>
+  {% endfor %}
+
+  </ul>
+
+Estás en la página: {{ page }}
+
+<div class="jumbotron">asd</div>
+
+</div>
+{% endblock %}

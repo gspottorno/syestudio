@@ -1,0 +1,24 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
+body {
+    background-color: lightgrey;
+}
+
+h1 {
+  color: blue;
+}
+
+.aparto {
+  background-color: #eee;
+  margin-top: 20em;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}
+
+.aparto2 {
+  background-color: #dbfbf5;
+  margin-top: 3em;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 1em; 
+}

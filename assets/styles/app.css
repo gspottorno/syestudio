@@ -1,4 +1,8 @@
+
 body {
-    /* background-color: lightgray; */
-    background-color: red;
+    background-color: #cccccc;
+}
+
+a:link, a:visited {
+  text-decoration: none;
 }
