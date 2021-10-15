@@ -31,6 +31,13 @@ class Centros
     /**
      * @var string
      *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="direccion", type="string", length=255, nullable=false)
      */
     private $direccion;
@@ -62,6 +69,18 @@ class Centros
     public function setCentro(string $centro): self
     {
         $this->centro = $centro;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

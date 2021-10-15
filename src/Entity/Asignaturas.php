@@ -31,16 +31,9 @@ class Asignaturas
     /**
      * @var string
      *
-     * @ORM\Column(name="tema", type="string", length=150, nullable=false)
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false)
      */
-    private $tema;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tabla", type="string", length=100, nullable=false)
-     */
-    private $tabla;
+    private $slug;
 
     public function getIdAsignatura(): ?int
     {
@@ -59,26 +52,14 @@ class Asignaturas
         return $this;
     }
 
-    public function getTema(): ?string
+    public function getSlug(): ?string
     {
-        return $this->tema;
+        return $this->slug;
     }
 
-    public function setTema(string $tema): self
+    public function setSlug(string $slug): self
     {
-        $this->tema = $tema;
-
-        return $this;
-    }
-
-    public function getTabla(): ?string
-    {
-        return $this->tabla;
-    }
-
-    public function setTabla(string $tabla): self
-    {
-        $this->tabla = $tabla;
+        $this->slug = $slug;
 
         return $this;
     }

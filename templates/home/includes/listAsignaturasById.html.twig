@@ -1,0 +1,11 @@
+{% for data3 in asignaturas %}
+  <li><a href="{{ data3.slug_centro }}/{{ data3.slug_curso }}/{{ data3.asignatura }}">{{ data3.asignatura }}</a>
+  <ul>
+    {{ render(controller(
+    'App\\Controller\\HomeController::temasAsignaturas', {
+      'idRelaciones': data3.id
+    }
+    ))}}
+  </ul>
+</li>
+{% endfor %}

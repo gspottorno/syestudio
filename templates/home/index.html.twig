@@ -17,10 +17,10 @@
 
   {% for data in centros %}
 
-  <li><a href="centros/{{ data.slug }}">{{ data.centro }}</a>
+  <li><a href="{{ data.slug }}">{{ data.centro }}</a>
     <ul>
       {{ render(controller(
-      'App\\Controller\\CursosController::cursosCentro',
+      'App\\Controller\\HomeController::cursosCentro',
       { 'idCentro': data.idCentro }
       ))}}
     </ul>
