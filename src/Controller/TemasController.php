@@ -9,6 +9,7 @@ use App\Entity\Cursos;
 use App\Entity\Centros;
 use App\Entity\Asignaturas;
 use App\Entity\Temas;
+use App\Entity\InglesIrregularVerbs;
 
 class TemasController extends AbstractController
 {
@@ -37,4 +38,15 @@ class TemasController extends AbstractController
           'tema' => $paso_tema
       ]);
   }
+
+  public function irregularVerbs()
+  {
+        $repo_iv = $this->getDoctrine()->getRepository(InglesIrregularVerbs::class);
+        $iv = $repo_iv->findAll();
+
+          return $this->render('temas/ingles/irregularVerbs.html.twig', [
+              'iv' => $iv
+          ]);
+  }
+
 }

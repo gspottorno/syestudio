@@ -12,12 +12,13 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Cursos;
 use App\Entity\Centros;
 use App\Entity\Relaciones;
+use App\Entity\Asignaturas;
 
 class HomeController extends AbstractController
 {
 
         /**
-       * @Route("/", name="")
+       * @Route("/", name="", name ="home")
        */
       public function index(Request $request): response
       {
@@ -86,7 +87,7 @@ class HomeController extends AbstractController
     $conn = $entityManager->getConnection();
 
     $sql3 = '
-    SELECT asignaturas.id_asignatura, asignaturas.asignatura, asignaturas.slug, relaciones.id, cursos.slug as slug_curso, centros.slug as slug_centro
+    SELECT asignaturas.id_asignatura, asignaturas.asignatura, asignaturas.slug as slug_asignatura, relaciones.id, cursos.slug as slug_curso, centros.slug as slug_centro
       FROM asignaturas
       INNER JOIN relaciones ON relaciones.id_asignatura = asignaturas.id_asignatura
       INNER JOIN cursos ON cursos.id_curso = relaciones.id_curso
@@ -138,5 +139,63 @@ class HomeController extends AbstractController
   }
 
   //**
+
+
+  /**
+   * @Route("/{centro}", name="centro")
+   */
+  public function centro($centro): Response
+  {
+    $repo_centros = $this->getDoctrine()->getRepository(Centros::class);
+    $paso_centro = $repo_centros->findOneBy(['slug' => $centro]);
+
+      return $this->render('home/centro.html.twig', [
+          'controller_name' => 'HomeController',
+          'centro' => $paso_centro
+      ]);
+  }
+
+
+
+    /**
+     * @Route("/{centro}/{curso}", name="curso")
+     */
+    public function curso($centro, $curso): Response
+    {
+      $repo_centros = $this->getDoctrine()->getRepository(Centros::class);
+      $paso_centro = $repo_centros->findOneBy(['slug' => $centro]);
+
+      $repo_cursos = $this->getDoctrine()->getRepository(Cursos::class);
+      $paso_curso = $repo_cursos->findOneBy(['slug' => $curso]);
+
+
+        return $this->render('home/curso.html.twig', [
+            'controller_name' => 'HomeController',
+            'centro' => $paso_centro,
+            'curso' => $paso_curso
+        ]);
+    }
+
+
+        /**
+         * @Route("/{centro}/{curso}/{asignatura}", name="asignatura")
+         */
+        public function asignatura($centro, $curso, $asignatura): Response
+        {
+          $repo_centros = $this->getDoctrine()->getRepository(Centros::class);
+          $repo_cursos = $this->getDoctrine()->getRepository(Cursos::class);
+          $repo_asignaturas = $this->getDoctrine()->getRepository(Asignaturas::class);
+          $paso_centro = $repo_centros->findOneBy(['slug' => $centro]);
+          $paso_curso = $repo_cursos->findOneBy(['slug' => $curso]);
+          $paso_asignatura = $repo_asignaturas->findOneBy(['slug' => $asignatura]);
+          $idRelac = 1;
+            return $this->render('home/asignatura.html.twig', [
+                'controller_name' => 'HomeController',
+                'centro' => $paso_centro,
+                'curso' => $paso_curso,
+                'asignatura' => $paso_asignatura,
+                'idRelac' => $idRelac
+            ]);
+        }
 
 }

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ centro.centro }} {{ g_seo_end }}{% endblock %}
+
+{% block body %}
+
+<h1>{{ asignatura.asignatura }} en {{ curso.curso }} del {{ centro.centro }}</h1>
+
+<h2>Temas de {{ asignatura.asignatura }}:</h2>
+    <ul>
+    <ul>
+      {{ render(controller(
+      'App\\Controller\\HomeController::temasAsignaturas', {
+        'idRelaciones': idRelac
+      }
+      ))}}
+    </ul>
+    </ul>
+
+
+{% endblock %}

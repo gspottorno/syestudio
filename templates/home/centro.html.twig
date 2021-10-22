@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ centro.centro }} {{ g_seo_end }}{% endblock %}
+
+{% block body %}
+
+<h1>{{ centro.centro }}</h1>
+
+<dir class="row">
+<dir class="col col-md-7">
+<ul>
+  <li><strong>Web</strong>: {{ centro.web }}</li>
+  <li><strong>Mail</strong>: {{ centro.mail }}</li>
+  <li><strong>Teléfono</strong>: {{ centro.telefono }}</li>
+  <li><strong>Web AMPA</strong>: {{ centro.ampa }}</li>
+  <li><strong>Dirección</strong>: {{ centro.direccion }}. {{ centro.cp }}, {{ centro.municipio }}</li>
+</ul>
+
+</dir>
+<dir class="col col-md-5">
+{{ centro.maps|raw }}
+</dir>
+</dir>
+<h2>Cursos pertenecientes a este centro:</h2>
+    <ul>
+      {{ render(controller(
+      'App\\Controller\\HomeController::cursosCentro',
+      { 'idCentro': centro.idCentro }
+      ))}}
+    </ul>
+
+
+{% endblock %}

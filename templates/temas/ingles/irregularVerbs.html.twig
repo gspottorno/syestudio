@@ -1,0 +1,27 @@
+
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th scope="col">Infinitive</th>
+      <th scope="col">Past</th>
+      <th scope="col">Past participle</th>
+      <th scope="col">Spanish</th>
+    </tr>
+</thead>
+<tbody>
+  {% for data in iv %}
+  <tr>
+      <th scope="row">{{ data.infinitive }}</th>
+      <td><input type="text" id="simplePast_{{loop.index}}" onclick="comprobar_dato('simplePast_{{loop.index}}');"></td>
+      <td><input type="text" id="pastParticiple_{{loop.index}}"></td>
+      <td><input type="text" id="spanish_{{loop.index}}"></td>
+    </tr>
+    <tr>
+        <th scope="row">{{ data.infinitive }}</th>
+        <td>{{ data.simplePast }}_{{loop.index}}</td>
+        <td>{{ data.pastParticiple }}</td>
+        <td>{{ data.spanish }}</td>
+      </tr>
+  {% endfor %}
+</tbody>
+</table>

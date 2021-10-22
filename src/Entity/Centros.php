@@ -38,6 +38,34 @@ class Centros
     /**
      * @var string
      *
+     * @ORM\Column(name="web", type="string", length=255, nullable=false)
+     */
+    private $web;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=150, nullable=false)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", length=25, nullable=false)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ampa", type="string", length=255, nullable=false)
+     */
+    private $ampa;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="direccion", type="string", length=255, nullable=false)
      */
     private $direccion;
@@ -55,6 +83,13 @@ class Centros
      * @ORM\Column(name="municipio", type="string", length=255, nullable=false)
      */
     private $municipio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="maps", type="text", length=65535, nullable=false)
+     */
+    private $maps;
 
     public function getIdCentro(): ?int
     {
@@ -81,6 +116,54 @@ class Centros
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getWeb(): ?string
+    {
+        return $this->web;
+    }
+
+    public function setWeb(string $web): self
+    {
+        $this->web = $web;
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getTelefono(): ?string
+    {
+        return $this->telefono;
+    }
+
+    public function setTelefono(string $telefono): self
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    public function getAmpa(): ?string
+    {
+        return $this->ampa;
+    }
+
+    public function setAmpa(string $ampa): self
+    {
+        $this->ampa = $ampa;
 
         return $this;
     }
@@ -117,6 +200,18 @@ class Centros
     public function setMunicipio(string $municipio): self
     {
         $this->municipio = $municipio;
+
+        return $this;
+    }
+
+    public function getMaps(): ?string
+    {
+        return $this->maps;
+    }
+
+    public function setMaps(string $maps): self
+    {
+        $this->maps = $maps;
 
         return $this;
     }

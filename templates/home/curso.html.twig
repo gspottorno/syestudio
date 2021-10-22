@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ centro.centro }} {{ g_seo_end }}{% endblock %}
+
+{% block body %}
+
+<h1>{{ curso.curso }} en {{ centro.centro }}</h1>
+
+<h2>Asignaturas en {{ curso.curso }}:</h2>
+    <ul>
+      {{ render(controller(
+      'App\\Controller\\HomeController::asignaturasCurso', {
+        'idCentro': centro.idCentro,
+        'idCurso': curso.idCurso
+      }
+      ))}}
+    </ul>
+
+
+{% endblock %}

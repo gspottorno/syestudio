@@ -17,8 +17,13 @@ import './bootstrap';
 
 bsCustomFileInput.init();
 
-
-
 $(document).ready(function () {
-    console.log("estamos dentro!");
+    console.log("assets/app.js running");
+
+    $('#pastParticiple_1').click(function() {
+      console.log( "Handler for .blur() called." );
+    });
+
 });
+
+import './js/scripts.js';

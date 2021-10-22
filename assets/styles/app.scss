@@ -1,20 +1,55 @@
 @import '~bootstrap/dist/css/bootstrap.css';
+:root {
+     --fuentePrimaria : 'Roboto',"Helvetica Neue",Helvetica,Arial,sans-serif;
+     --fuenteSecundaria : 'Poppins', sans-serif;
+     --primario: #ffffff;
+     --secundario: #ff7900;
+     --terciario: #333333;
+     --backgroundCorporative: #f3f1f1; /* ff7900 FF5A00*/
+     --backgroundCorporativeOpacity: #ffcc99; /* ff7900 FF5A00*/
+     --backgroundFondoTitulo: #FF5A00; //var(--backgroundFondoTitulo)
+     --backgroundFondoTituloBorde: #C74600; //var(--backgroundFondoTituloBorde)
+     --backgroundSecundario: #cccccc; /* ff7900 FF5A00*/
+     --backgroundAsides: lightgrey;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img {
+  border:0px;
+}
 
 body {
-    background-color: lightgrey;
+    background-color: var(--backgroundCorporative);
+    font-family: var(--fuentePrimaria);
     margin: 0 auto;
     width: 100%;
     max-width: 1280px;
 }
 
+h1 {
+  color: black;
+  margin-bottom: 1em;
+}
+h1::before {
+  content: "►";
+  color: #660000;
+}
+h1::after {
+  content: "◄";
+  color: #660000;
+}
 .top-img {
   width: 100%;
   max-width: 1280px;
 }
 
-h1 {
-  color: blue;
-}
 
 .example-wrapper {
   margin: 1em auto;
@@ -30,9 +65,13 @@ h1 {
   padding: 2px 6px; }
 
 .breadcrumb {
-  font-size: 10px;
+  font-size: 12px;
 }
 
+.breadcrumb a {
+  margin-left: 1em;
+  margin-right: 1em;
+}
 .aparto {
   background-color: #eee;
   margin-top: 20em;

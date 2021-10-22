@@ -1,5 +1,5 @@
 {% for data3 in asignaturas %}
-  <li><a href="{{ data3.slug_centro }}/{{ data3.slug_curso }}/{{ data3.asignatura }}">{{ data3.asignatura }}</a>
+  <li><a href="{{ path('asignatura', { centro: data3.slug_centro, curso: data3.slug_curso, asignatura:data3.slug_asignatura}) }}">{{ data3.asignatura }}</a>
   <ul>
     {{ render(controller(
     'App\\Controller\\HomeController::temasAsignaturas', {

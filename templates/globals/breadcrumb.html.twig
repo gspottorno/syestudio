@@ -1,0 +1,18 @@
+<p class="breadcrumb">
+
+  <a href="{{ path('home') }}">Inicio</a>
+
+  {% if centro %}
+  > <a href="{{ path('centro', { centro: centro.slug}) }}">{{ centro.centro }}</a>
+  {% endif %}
+  {% if curso %}
+  > <a href="{{ path('curso', { centro: centro.slug, curso: curso.slug}) }}">{{ curso.curso }}</a>
+  {% endif %}
+  {% if asignatura %}
+  > <a href="{{ path('asignatura', { centro: centro.slug, curso: curso.slug, asignatura: asignatura.slug}) }}"">{{ asignatura.asignatura }}</a>
+  {% endif %}
+  {% if tema %}
+  > <a href="{{ path('tema', { centro: centro.slug, curso: curso.slug, asignatura: asignatura.slug, tema: tema.slug}) }}">{{ tema.tema }}</a>
+  {% endif %}
+
+  </p>
