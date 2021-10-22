@@ -1,13 +1,11 @@
 
 
-    console.log("assets/js/scripts.js running");
-
-    function comprobarDato(campo) {
+    comprobarSimplePast = function(campo) {
 
       console.log( campo );
 
       var recipiente = document.getElementById(campo);
-
+/*
       const descripcion_value = document.getElementById('descripcion_value');
     	const contador_descripcion = document.getElementById('contador_descripcion');
 
@@ -16,5 +14,5 @@
     	    const longitudMax = target.getAttribute('maxlength');
     	    const longitudAct = target.value.length;
     	    contador_descripcion.innerHTML = `${longitudAct}/${longitudMax}`;
-    	});
+    	});*/
     } //

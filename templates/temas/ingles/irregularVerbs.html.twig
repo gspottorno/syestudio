@@ -9,10 +9,12 @@
     </tr>
 </thead>
 <tbody>
+
+
   {% for data in iv %}
   <tr>
       <th scope="row">{{ data.infinitive }}</th>
-      <td><input type="text" id="simplePast_{{loop.index}}" onclick="comprobar_dato('simplePast_{{loop.index}}');"></td>
+      <td><input type="text" id="simplePast_{{loop.index}}" onclick="comprobarSimplePast('simplePast_{{loop.index}}');"></td>
       <td><input type="text" id="pastParticiple_{{loop.index}}"></td>
       <td><input type="text" id="spanish_{{loop.index}}"></td>
     </tr>
