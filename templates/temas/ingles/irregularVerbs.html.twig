@@ -14,9 +14,15 @@
   {% for data in iv %}
   <tr>
       <th scope="row">{{ data.infinitive }}</th>
-      <td><input type="text" id="simplePast_{{loop.index}}" onclick="comprobarSimplePast('simplePast_{{loop.index}}');"></td>
-      <td><input type="text" id="pastParticiple_{{loop.index}}"></td>
-      <td><input type="text" id="spanish_{{loop.index}}"></td>
+      <td>
+        <input type="text" id="simplePast_{{loop.index}}" onkeyup="comprobarValores('simplePast_{{loop.index}}','{{ data.simplePast }}');"><div class="response" id="simplePast_{{loop.index}}_response"></div>
+      </td>
+      <td>
+      <input type="text" id="pastParticiple_{{loop.index}}" onkeyup="comprobarValores('pastParticiple_{{loop.index}}','{{ data.pastParticiple }}');"><div class="response" id="pastParticiple_{{loop.index}}_response"></div>
+      </td>
+      <td>
+      <input type="text" id="spanish_{{loop.index}}" onkeyup="comprobarValores('spanish_{{loop.index}}','{{ data.spanish }}');"><div class="response" id="spanish_{{loop.index}}_response"></div>
+      </td>
     </tr>
     <tr>
         <th scope="row">{{ data.infinitive }}</th>
