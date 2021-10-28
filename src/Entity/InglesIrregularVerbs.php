@@ -22,6 +22,13 @@ class InglesIrregularVerbs
     private $id;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="activo", type="boolean", nullable=false, options={"default"="1"})
+     */
+    private $activo = true;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="infinitive", type="string", length=150, nullable=false)
@@ -52,6 +59,18 @@ class InglesIrregularVerbs
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getActivo(): ?bool
+    {
+        return $this->activo;
+    }
+
+    public function setActivo(bool $activo): self
+    {
+        $this->activo = $activo;
+
+        return $this;
     }
 
     public function getInfinitive(): ?string

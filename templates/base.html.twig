@@ -46,12 +46,26 @@
   </nav>
 
   <div class="example-wrapper">
-  {{ render(controller(
-  'App\\Controller\\GlobalsController::breadcrumb',
-  { 'url': app.request.uri }
-  ))}}
 
-          {% block body %}{% endblock %}
+  {% if app.request.pathinfo != '/' %}
+    {{ render(controller(
+    'App\\Controller\\GlobalsController::breadcrumb',
+    { 'url': app.request.uri }
+    ))}}
+  {% endif %}
+
+  {% block body %}{% endblock %}
+
+</div>
+
+
+<div class="aparto">
+  <div class="jumbotron">
+  <p>Estás en: {{ app.request.uri }}</p>
+  <p>Este sitio web es un proyecto Creative Commons hecho con Symfony.</p>
+  <p>©Guille Spottorno</p>
   </div>
+</div>
+
 </body>
 </html>

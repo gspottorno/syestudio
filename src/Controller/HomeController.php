@@ -121,8 +121,8 @@ class HomeController extends AbstractController
       FROM temas
       INNER JOIN relaciones ON relaciones.id = temas.id_relaciones
       INNER JOIN asignaturas ON asignaturas.id_asignatura = relaciones.id_asignatura
-      INNER JOIN cursos ON cursos.id_curso = relaciones.id_curso
-      INNER JOIN centros ON centros.id_centro = relaciones.id_centro
+      LEFT JOIN cursos ON relaciones.id_curso = cursos.id_curso
+      LEFT JOIN centros ON relaciones.id_centro = centros.id_centro
       WHERE temas.id_relaciones = :id_relaciones
       ORDER BY temas.tema asc
     ';

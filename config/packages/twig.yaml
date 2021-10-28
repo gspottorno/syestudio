@@ -2,4 +2,4 @@ twig:
     default_path: '%kernel.project_dir%/templates'
 
     globals:
-      g_seo_end: ' - ©Guillermo Spottorno' 
+      g_seo_end: ' - Un proyect Symfony de ©Guille Spottorno' 
