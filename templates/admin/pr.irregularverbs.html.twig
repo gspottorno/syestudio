@@ -1,0 +1,37 @@
+{% extends 'admin.base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+
+<h1>{{title}}</h1>
+
+<h2>Pintor Rosales -> Irregular verbs</h2>
+
+<section class="contenedor_grid_4">
+     <div class="item-1 titles">Infinitive</div>
+     <div class="item-2 titles">Past</div>
+     <div class="item-3 titles">Past participle</div>
+     <div class="item-4 titles">Spanish</div>
+
+
+  {% for data in iv %}
+    {% if data.activo == 1 %}
+
+      <div class="item-1"><strong>{{ data.infinitive }}</strong></div>
+      <div class="item-2">
+        <div class="mobileshow01"><acronym title="Past">P</acronym></div><input type="text" id="simplePast_{{loop.index}}" onkeyup="unificoTextos('simplePast_{{loop.index}}'); comprobarValores('simplePast_{{loop.index}}','{{ data.simplePast }}');"><div class="response" id="simplePast_{{loop.index}}_response"></div><acronym title="{{data.simplePast}}" class="help">?</acronym>
+      </div>
+      <div class="item-3">
+        <div class="mobileshow01"><acronym title="Past participle">PP</acronym></div><input type="text" id="pastParticiple_{{loop.index}}" onkeyup="unificoTextos('simplePast_{{loop.index}}'); comprobarValores('pastParticiple_{{loop.index}}','{{ data.pastParticiple }}');"><div class="response" id="pastParticiple_{{loop.index}}_response"></div><acronym title="{{data.pastParticiple}}" class="help">?</acronym>
+      </div>
+      <div class="item-4">
+        <div class="mobileshow01"><acronym title="Spanish">S</acronym></div><input type="text" id="spanish_{{loop.index}}" onkeyup="unificoTextos('simplePast_{{loop.index}}'); comprobarValores('spanish_{{loop.index}}','{{ data.spanish }}');"><div class="response" id="spanish_{{loop.index}}_response"></div><acronym title="{{data.spanish}}" class="help">?</acronym>
+      </div>
+
+    {% endif %}
+  {% endfor %}
+
+</section>
+
+{% endblock %}

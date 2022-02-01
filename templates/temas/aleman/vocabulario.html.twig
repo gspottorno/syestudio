@@ -1,0 +1,27 @@
+
+
+<section class="contenedor_grid_3">
+     <div class="item-1 titles">Sección</div>
+     <div class="item-2 titles">Español</div>
+     <div class="item-3 titles">Alemán</div>
+
+
+  {% for data in iv %}
+    {% if data.activo == 1 %}
+
+      <div class="item-1">{{ data.seccion }}</div>
+      <div class="item-2">{{ data.espanol }}</div>
+      <div class="item-3">
+        <div class="mobileshow01"><acronym title="Alemán">A</acronym></div>
+        <input type="text" id="aleman_{{loop.index}}" onkeyup="unificoTextos('aleman_{{loop.index}}'); comprobarValores('aleman_{{loop.index}}','{{ data.aleman|lower }}');">
+          <div class="response" id="aleman_{{loop.index}}_response"></div>
+          <acronym title="{{data.aleman|lower }}" class="help">?</acronym>
+      </div>
+
+
+    {% endif %}
+  {% endfor %}
+</section>
+
+</tbody>
+</table>

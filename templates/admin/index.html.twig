@@ -1,0 +1,14 @@
+{% extends 'admin.base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+
+<h1>{{title}}</h1>
+
+<h2>Pintor Rosales</h2>
+<ul>
+  <li><a href="{{ path('pr_irregularverbs') }}">Administrar irregular verbs</a></li>
+</ul>
+
+{% endblock %}
