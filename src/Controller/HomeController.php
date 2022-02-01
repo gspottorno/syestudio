@@ -11,8 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Cursos;
 use App\Entity\Centros;
-use App\Entity\Relaciones;
 use App\Entity\Asignaturas;
+use App\Entity\Relaciones;
 
 class HomeController extends AbstractController
 {
@@ -100,7 +100,7 @@ class HomeController extends AbstractController
     $stmt3->execute(['id_centro' => $idCentro,'id_curso' => $idCurso]);
     $datos3 = $stmt3->fetchAll();
 
-    dump($datos3);
+    //dump($datos3);
 
        return $this->render('home/includes/listAsignaturasById.html.twig', [
           'asignaturas' => $datos3,
@@ -130,7 +130,7 @@ class HomeController extends AbstractController
     $stmt4->execute(['id_relaciones' => $idRelaciones]);
     $datos4 = $stmt4->fetchAll();
 
-    dump($datos4);
+    //dump($sql4);
 
        return $this->render('home/includes/listTemasById.html.twig', [
           'temas' => $datos4,
@@ -183,12 +183,37 @@ class HomeController extends AbstractController
         public function asignatura($centro, $curso, $asignatura): Response
         {
           $repo_centros = $this->getDoctrine()->getRepository(Centros::class);
-          $repo_cursos = $this->getDoctrine()->getRepository(Cursos::class);
-          $repo_asignaturas = $this->getDoctrine()->getRepository(Asignaturas::class);
           $paso_centro = $repo_centros->findOneBy(['slug' => $centro]);
+
+          $repo_cursos = $this->getDoctrine()->getRepository(Cursos::class);
           $paso_curso = $repo_cursos->findOneBy(['slug' => $curso]);
+
+          $repo_asignaturas = $this->getDoctrine()->getRepository(Asignaturas::class);
           $paso_asignatura = $repo_asignaturas->findOneBy(['slug' => $asignatura]);
-          $idRelac = 1;
+
+          //relaciones
+          $entityManager = $this->getDoctrine()->getManager();
+          $conn = $entityManager->getConnection();
+
+          $sql5 = '
+          SELECT relaciones.id
+            FROM relaciones
+            INNER JOIN asignaturas ON relaciones.id_asignatura = asignaturas.id_asignatura
+            INNER JOIN cursos ON relaciones.id_curso = cursos.id_curso
+            INNER JOIN centros ON relaciones.id_centro = centros.id_centro
+            WHERE centros.slug = :centro
+            AND cursos.slug = :curso
+            AND asignaturas.slug = :asignatura
+          ';
+          $stmt5 = $conn->prepare($sql5);
+          $stmt5->execute(['centro' => $centro,
+                          'curso' => $curso,
+                          'asignatura' => $asignatura]);
+          $idRelac = $stmt5->fetchAll();
+          //
+
+          //dump($idRelac);
+
             return $this->render('home/asignatura.html.twig', [
                 'controller_name' => 'HomeController',
                 'centro' => $paso_centro,

@@ -10,6 +10,7 @@ use App\Entity\Centros;
 use App\Entity\Asignaturas;
 use App\Entity\Temas;
 use App\Entity\InglesIrregularVerbs;
+use App\Entity\AlemanVocabulario;
 
 class TemasController extends AbstractController
 {
@@ -48,5 +49,16 @@ class TemasController extends AbstractController
               'iv' => $iv
           ]);
   }
+
+
+    public function alemanVocabulario()
+    {
+          $repo_iv = $this->getDoctrine()->getRepository(AlemanVocabulario::class);
+          $iv = $repo_iv->findAll();
+
+            return $this->render('temas/aleman/vocabulario.html.twig', [
+                'iv' => $iv
+            ]);
+    }
 
 }

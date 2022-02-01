@@ -20,3 +20,12 @@
 
 
     } //
+
+unificoTextos = function(id) {
+  document.getElementById(id).value = document.getElementById(id).value.toLowerCase();
+}
+
+unificoTextosSinEspacio = function(id) {
+  document.getElementById(id).value = document.getElementById(id).value.replace(' ','');
+  document.getElementById(id).value = document.getElementById(id).value.toLowerCase();
+}

@@ -7,6 +7,7 @@
 <h2>Actualmente hay {{ centros|length }} centros en nuestro directorio</h2>
 
   <ul id="ulcss">
+  
   {% for data in centros %}
 
   <li><a href="{{ data.slug }}">{{ data.centro }}</a>

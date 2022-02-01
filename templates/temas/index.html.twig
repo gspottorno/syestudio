@@ -13,11 +13,22 @@
 </tbody>
 </table>
 
-{% if tema.tema == 'Irregular verbs' %}
+{% if tema.idTema == '1' %}
   {{ render(controller(
   'App\\Controller\\TemasController::irregularVerbs'
   ))}}
 {% endif %}
 
+{% if tema.idTema == '2' %}
+  {{ render(controller(
+  'App\\Controller\\TemasController::irregularVerbs'
+  ))}}
+{% endif %}
+
+{% if tema.idTema == '3' %}
+  {{ render(controller(
+  'App\\Controller\\TemasController::alemanVocabulario'
+  ))}}
+{% endif %}
 
 {% endblock %}
