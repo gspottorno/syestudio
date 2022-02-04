@@ -109,6 +109,16 @@ h1::after {
    padding: 4px;
  }
 
+ .contenedor_grid_6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .contenedor_grid_6 div {
+    border-bottom: 1px solid #ccc;
+    padding: 4px;
+  }
+
 .titles {
   background-color: var(--terciario) !important;
   color: #ffffff;
@@ -120,7 +130,7 @@ h1::after {
 
 @media only screen and (max-width: 480px) {
 
- .contenedor_grid_4, .contenedor_grid_3 {
+ .contenedor_grid_6, .contenedor_grid_4, .contenedor_grid_3 {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;

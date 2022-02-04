@@ -8,11 +8,13 @@
 
 <h2>Pintor Rosales -> Irregular verbs</h2>
 
-<section class="contenedor_grid_4">
+<section class="contenedor_grid_6">
      <div class="item-1 titles">Infinitive</div>
      <div class="item-2 titles">Past</div>
      <div class="item-3 titles">Past participle</div>
      <div class="item-4 titles">Spanish</div>
+     <div class="item-5 titles">Cambiar</div>
+     <div class="item-6 titles">Borrar</div>
 
 
   {% for data in iv %}
@@ -28,7 +30,12 @@
       <div class="item-4">
         <div class="mobileshow01"><acronym title="Spanish">S</acronym></div><input type="text" id="spanish_{{loop.index}}" onkeyup="unificoTextos('simplePast_{{loop.index}}'); comprobarValores('spanish_{{loop.index}}','{{ data.spanish }}');"><div class="response" id="spanish_{{loop.index}}_response"></div><acronym title="{{data.spanish}}" class="help">?</acronym>
       </div>
-
+      <div class="item-5">
+        Cambiar
+      </div>
+      <div class="item-6">
+        Eliminar
+      </div>
     {% endif %}
   {% endfor %}
 
