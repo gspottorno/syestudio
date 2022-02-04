@@ -142,7 +142,7 @@ class HomeController extends AbstractController
 
 
   /**
-   * @Route("/{centro}", name="centro")
+   * @Route("/{centro}", name="centro", requirements={"centro": "pintor-rosales|ramiro-de-maeztu"}))
    */
   public function centro($centro): Response
   {
